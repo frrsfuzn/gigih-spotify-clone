@@ -1,10 +1,12 @@
 import React from 'react'
-import {Container, Text, VStack} from '@chakra-ui/react'
+import {Container, Text, VStack, useColorMode} from '@chakra-ui/react'
 import AppBar from '../components/AppBar'
 
-function dashboard() {
+function Dashboard() {
+	const {colorMode} = useColorMode();
+	const isDark = colorMode === 'dark'
 	return (
-    <VStack bg="blue.700" minH="100vh">
+    <VStack bg={isDark?"blue.700":"blue.100"} minH="100vh">
 			<AppBar/>
       <Container maxW="container.xl">
 			</Container>
@@ -12,4 +14,4 @@ function dashboard() {
   );
 }
 
-export default dashboard
+export default Dashboard
