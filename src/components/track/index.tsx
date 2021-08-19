@@ -17,7 +17,7 @@ interface ITrack {
 	isSelected: boolean;
 	addToSelectedTracks: (uri:string) => void;
 	removeFromSelectedTracks: (uri:string) => void;
-	startPreview: (src: string) => void;
+	startPreview: (src: string | null) => void;
 	stopPreview: () => void;
 }
 
@@ -30,7 +30,7 @@ function Track({
   stopPreview,
 }: ITrack) {
 	const [isBiggerThan950] = useMediaQuery("(min-width: 950px)")
-	const buttonIcon = isBiggerThan950 ? null : isSelected ? <FaTimes/> : <FaCheck/>
+	const buttonIcon = isBiggerThan950 ? undefined : isSelected ? <FaTimes/> : <FaCheck/>
   const artists = track?.artists.map((artist) => artist.name).join(", ");
   let buttonTitle = "Select";
   if (isSelected) {

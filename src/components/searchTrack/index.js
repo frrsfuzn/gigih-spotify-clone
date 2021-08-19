@@ -37,6 +37,7 @@ function SearchTrack() {
         <FormLabel>Track Name</FormLabel>
         <Flex flexDir="row">
           <Input
+						data-testid="inputSearchTrack"
             type="text"
             value={trackName}
             onChange={(e) => setTrackName(e.target.value)}

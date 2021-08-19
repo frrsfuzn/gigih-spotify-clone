@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Container,
-  Text,
   VStack,
   useColorMode,
   Grid,

@@ -21,7 +21,7 @@ function CreatePlaylist() {
   const userProfileId = useSelector((state) => state.user.value.id);
   const token = useSelector((state) => state.token.value);
   const { colorMode } = useColorMode();
-  const isDark = colorMode == "dark";
+  const isDark = colorMode === "dark";
 
   function alertToast(title, status) {
     toast({
