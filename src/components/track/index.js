@@ -11,9 +11,19 @@ import {
 import {FaPlayCircle, FaStopCircle} from 'react-icons/fa'
 import React from "react";
 
-function Track({track}) {
+function Track({track, isSelected, removeFromSelectedTracks, addToSelectedTracks}) {
 	const artists = track?.artists.map(artist => artist.name).join(', ')
-	console.log(artists)
+	let buttonTitle = "Select"
+	if(isSelected){
+		buttonTitle = "Deselect"
+	}
+	function handleClick(){
+		if(isSelected){
+			removeFromSelectedTracks(track.uri)
+		}else{
+			addToSelectedTracks(track.uri)
+		}
+	}
   return (
     <Grid
       templateColumns="1fr 2fr 1fr"
@@ -25,7 +35,6 @@ function Track({track}) {
 			pr={4}
 			pb={2}
 			my={2}
-			key={track?.id}
     >
       <Image
         gridArea="1/1/span 3/2"
@@ -42,7 +51,7 @@ function Track({track}) {
 				<IconButton icon={<FaStopCircle/>} isRound="true"/>
 				<IconButton icon={<FaPlayCircle/>} isRound="true"/>
 			</HStack>
-      <Button colorScheme="green" gridArea="1/3/span 3/3">Select</Button>
+      <Button onClick={handleClick} colorScheme={isSelected?"red":"green"} gridArea="1/3/span 3/3">{buttonTitle}</Button>
     </Grid>
   );
 }
