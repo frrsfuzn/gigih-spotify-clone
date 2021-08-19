@@ -1,11 +1,7 @@
 import {
-  Button,
   Container,
-  FormControl,
-  FormLabel,
   Heading,
-  Flex,
-  Input,
+	useColorMode
 } from "@chakra-ui/react";
 import React from "react";
 import Track from "../track";
@@ -14,6 +10,8 @@ import { storeSelected } from "../../features/tracks/trackSlice";
 import {startPreview, stopPreview} from '../../spotifyFunctions'
 
 function SearchResult() {
+	const {colorMode} = useColorMode()
+	const isDark = colorMode === 'dark'
   const tracks = useSelector((state) => state.track.searchTracks);
   const selectedTracks = useSelector((state) => state.track.selectedTracks);
   const dispatch = useDispatch();
@@ -27,7 +25,7 @@ function SearchResult() {
   }
 
   return (
-    <Container py={4} maxW="container.sm" bg="blue.500" borderRadius="4px">
+    <Container py={4} maxW="container.sm" bg={isDark?"blue.500":"blue.200"} borderRadius="4px">
       <Heading textAlign="center" size="md" mb={4}>
         Search Result
       </Heading>

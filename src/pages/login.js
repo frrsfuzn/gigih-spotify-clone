@@ -42,7 +42,7 @@ function Login() {
           minH="100vh"
         >
           <GridItem w="100%" textAlign={{ base: "center", md: "left" }}>
-            <Heading fontSize="3xl" mb={4}>
+            <Heading color="white" fontSize="3xl" mb={4}>
               Create a place for <br /> your favorite music
               <br /> within a minute!
             </Heading>
