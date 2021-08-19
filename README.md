@@ -32,10 +32,10 @@ localhost:3000
 ## Requirement check
 |Requirement|Check|Location|
 |-----------|-----|-----------|
-|Hooks|Ok|createPlaylist, searchTrack|
-|Flex|Ok|appBar, searchTrack|
-|Grid|Ok|track, dashboard, login|
-|Typescript|Ok|track|
-|Redux|Ok|src/features/|
-|Test element in document|Ok|track.test.js|
-|Test useing MSW & user Event|Ok|SearchTrack.test.js|
+|Hooks|✔|createPlaylist, searchTrack|
+|Flex|✔|appBar, searchTrack|
+|Grid|✔|track, dashboard, login|
+|Typescript|✔|track|
+|Redux|✔|src/features/|
+|Test element in document|✔|track.test.js|
+|Test useing MSW & user Event|✔|SearchTrack.test.js|
