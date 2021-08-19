@@ -1,10 +1,15 @@
 import React from 'react'
-import {Text} from '@chakra-ui/react'
+import {Container, Text, VStack} from '@chakra-ui/react'
+import AppBar from '../components/AppBar'
 
 function dashboard() {
 	return (
-		<Text>Dashboard</Text>
-	)
+    <VStack bg="blue.700" minH="100vh">
+			<AppBar/>
+      <Container maxW="container.xl">
+			</Container>
+    </VStack>
+  );
 }
 
 export default dashboard

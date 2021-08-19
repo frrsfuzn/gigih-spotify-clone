@@ -7,34 +7,37 @@ import {
   Flex,
   Box,
   Image,
-	Spacer,
-	useMediaQuery,
+  Spacer,
+  useMediaQuery,
+  Grid,
+  GridItem,
+  Container,
 } from "@chakra-ui/react";
 import AppBar from "../components/AppBar";
 
 function Login() {
-	const [isNotSmallerScreen] = useMediaQuery("(min-width:1000px)")
   return (
-    <VStack
-      px={isNotSmallerScreen? 20 : 5}
-			py={20}
-      alignItems="flex-start"
-      minH="100vh"
-      width="100%"
-      justifyContent="center"
-      colorScheme="blue"
-    >
-      <Flex w="100%" alignItems="center" justifyContent="space-between" flexDirection={isNotSmallerScreen? 'row' : 'column'}>
-        <Box textAlign={isNotSmallerScreen ? 'left' : 'center'} mb={8}>
-          <Heading  maxW="400px" mb={8}>
-            Create a place for your favorite music within a minute!
-          </Heading>
-          <Button colorScheme="green">Login with Spotify</Button>
-        </Box>
-        <Box maxW={isNotSmallerScreen ? '600px':'100%'} >
-          <Image src={process.env.PUBLIC_URL + "/music.png"} />
-        </Box>
-      </Flex>
+    <VStack bg="blue.700">
+      <Container maxW="container.lg">
+        <Grid
+          w="100%"
+          templateColumns={{ sm: "1fr", md: "1fr 1fr" }}
+          templateRows={{ sm: "1fr 1fr", md: "1fr" }}
+          alignItems="center"
+          minH="100vh"
+        >
+          <GridItem w="100%" textAlign={{ base: "center", md: "left" }}>
+            <Heading fontSize="3xl" mb={4}>
+              Create a place for <br /> your favorite music
+              <br /> within a minute!
+            </Heading>
+            <Button colorScheme="green">Login with Spotify</Button>
+          </GridItem>
+          <GridItem w="100%">
+            <Image src={process.env.PUBLIC_URL + "/music.png"} />
+          </GridItem>
+        </Grid>
+      </Container>
     </VStack>
   );
 }
