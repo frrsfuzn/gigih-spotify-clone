@@ -33,14 +33,15 @@ function Track({
   }
   return (
     <Grid
-      templateColumns="1fr 2fr 1fr"
-      templateRows="repeat(3, 1fr)"
+      templateColumns="2fr 5fr 1fr"
+      templateRows="2fr 25px 1fr"
       alignItems="center"
       justifyContent="space-between"
       bg="blue.300"
       borderRadius="5"
       pr={4}
       pb={2}
+			py={2}
       my={2}
     >
       <Image
@@ -52,7 +53,7 @@ function Track({
         borderRadius="5"
         mx={2}
       />
-      <Heading size="sm">{track?.name}</Heading>
+      <Heading alignSelf="end" size="sm">{track?.name}</Heading>
       <Text>{artists}</Text>
       <HStack>
         <IconButton
