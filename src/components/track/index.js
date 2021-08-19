@@ -7,9 +7,11 @@ import {
   HStack,
   Spacer,
   Text,
+	useMediaQuery
 } from "@chakra-ui/react";
 import { FaPlayCircle, FaStopCircle } from "react-icons/fa";
 import React from "react";
+import {FaCheck, FaTimes} from 'react-icons/fa'
 
 function Track({
   track,
@@ -19,6 +21,7 @@ function Track({
   startPreview,
   stopPreview,
 }) {
+	const [isBiggerThan950] = useMediaQuery("(min-width: 950px)")
   const artists = track?.artists.map((artist) => artist.name).join(", ");
   let buttonTitle = "Select";
   if (isSelected) {
@@ -33,8 +36,8 @@ function Track({
   }
   return (
     <Grid
-      templateColumns="2fr 5fr 1fr"
-      templateRows="2fr 25px 1fr"
+      templateColumns="1fr 5fr 1fr"
+      templateRows="2fr 1fr 1fr"
       alignItems="center"
       justifyContent="space-between"
       bg="blue.300"
@@ -71,8 +74,9 @@ function Track({
         onClick={handleClick}
         colorScheme={isSelected ? "red" : "green"}
         gridArea="1/3/span 3/3"
+				leftIcon={isBiggerThan950 ? "" : isSelected ? <FaTimes/> : <FaCheck/>}
       >
-        {buttonTitle}
+        {isBiggerThan950?  buttonTitle : ""}
       </Button>
     </Grid>
   );
