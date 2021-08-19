@@ -21,12 +21,14 @@ function Dashboard() {
         <Grid
 					rowGap="10px"
 					columnGap="10px"
+					gridTemplateColumns={{base: "1fr", md:"1fr 2fr"}}
 					gridTemplateAreas={
 						{base: `"createPlaylist"
 										"searchTrack"
 										"searchResult"`,
 						md: 	`"createPlaylist searchTrack"
 									 "createPlaylist searchResult"`}}>
+
           <GridItem gridArea="createPlaylist">
             <CreatePlaylist />
           </GridItem>
