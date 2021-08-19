@@ -7,7 +7,7 @@ function AppBar() {
 	const {colorMode, toggleColorMode} = useColorMode();
 	const isDark = colorMode === 'dark'
   return (
-    <Flex alignItems="center" position="fixed" top="0" right="0" width="100%" px={{base:5, md: 20}} py={2}>
+    <Flex zIndex="3" bg="blue.800" alignItems="center" position="fixed" top="0" right="0" width="100%" px={{base:5, md: 20}} py={2}>
 			<Heading>Spotifai</Heading>
 			<Spacer/>
 			{ isLargerThan800 && <Heading size="lg">Mochamad Farras Fauzan</Heading>}
