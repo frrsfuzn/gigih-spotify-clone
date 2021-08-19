@@ -1,20 +1,18 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
-import { VStack, Text, DarkMode } from "@chakra-ui/react";
+import {useSelector} from 'react-redux'
 
 function App() {
+	const token= useSelector(state => state.token.value)
   return (
-		// <DarkModeSwitch/>
-		// <VStack>
-		// 	<Text>Hello</Text>
-		// </VStack>
 		<Router>
 			<Switch>
 				<Route path="/create-playlist">
-					<Dashboard/>
+					{token ?<Dashboard/> : <Redirect to="/"/> }
 				</Route>
 				<Route path="/">
+					{token && <Redirect to="/create-playlist"/> }
 					<Login/>
 				</Route>
 			</Switch>
