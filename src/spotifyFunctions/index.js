@@ -1,5 +1,5 @@
 import {Authentication} from './authentication'
 import { getTokenFromHash } from './getTokenFromHash'
-import { fetchUserProfile } from './fetchUserProfile'
+import { fetchUserProfile, searchTrack } from './spotifyApi'
 
-export {Authentication, getTokenFromHash, fetchUserProfile}
+export {Authentication, getTokenFromHash, fetchUserProfile, searchTrack}
