@@ -1,9 +1,11 @@
-import { Button, Container, FormControl, FormLabel, Heading, Flex, Input, Textarea } from '@chakra-ui/react'
+import { Button, Container, FormControl, FormLabel, Heading, Input, Textarea, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 
 function CreatePlaylist() {
+	const {colorMode} = useColorMode()
+	const isDark = colorMode == "dark"
 	return (
-		<Container py={4} maxW="container.sm" bg="blue.500" borderRadius="4px">
+		<Container py={4} maxW="container.sm" bg={isDark ? "teal.400" : "teal.200"} borderRadius="4px">
 			<Heading textAlign="center" mb={4} size="md">Create Playlist</Heading>
 			<FormControl>
 				<FormLabel>Playlist Name</FormLabel>

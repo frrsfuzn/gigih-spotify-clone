@@ -1,10 +1,13 @@
+import { Button, Container, FormControl, FormLabel, Heading, Flex, Input } from '@chakra-ui/react'
 import React from 'react'
+import Track from '../track'
 
 function SearchResult() {
 	return (
-		<div>
-
-		</div>
+		<Container py={4} maxW="container.sm" bg="blue.500" borderRadius="4px">
+			<Heading>Search Result</Heading>
+			<Track/>
+		</Container>
 	)
 }
 
