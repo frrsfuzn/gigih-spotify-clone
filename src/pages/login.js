@@ -4,16 +4,11 @@ import {
   VStack,
   Heading,
   Button,
-  Flex,
-  Box,
   Image,
-  Spacer,
-  useMediaQuery,
   Grid,
   GridItem,
   Container,
 } from "@chakra-ui/react";
-import AppBar from "../components/AppBar";
 
 function Login() {
   return (
