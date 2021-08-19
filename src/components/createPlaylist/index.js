@@ -7,12 +7,14 @@ import {
   Input,
   Textarea,
   useColorMode,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { createPlaylist, addTracksToPlaylist } from "../../spotifyFunctions";
 
 function CreatePlaylist() {
+  const toast = useToast();
   const [playlistName, setPlaylistName] = useState("");
   const [playlistDesc, setPlaylistDesc] = useState("");
   const selectedTracks = useSelector((state) => state.track.selectedTracks);
@@ -21,20 +23,49 @@ function CreatePlaylist() {
   const { colorMode } = useColorMode();
   const isDark = colorMode == "dark";
 
+  function alertToast(title, status) {
+    toast({
+      title: title,
+      status: status,
+      duration: 5000,
+      isClosable: true,
+    });
+  }
+
   async function handleSubmit() {
     if (selectedTracks.length !== 0) {
       if (playlistName && playlistDesc) {
+        if (playlistName.length < 10) {
+          alertToast(
+            "Playlist name should have minimum 10 characters",
+            "error"
+          );
+          return;
+        } else if (playlistDesc.length < 20) {
+          alertToast(
+            "Playlist description should have minimun 20 characters",
+            "error"
+          );
+          return;
+        }
         const resPlaylist = await createPlaylist(
           playlistName,
           playlistDesc,
           userProfileId,
           token
         );
-				const resAddTrack = await addTracksToPlaylist(resPlaylist.id, selectedTracks, token)
+        const resAddTrack = await addTracksToPlaylist(
+          resPlaylist.id,
+          selectedTracks,
+          token
+        );
+        if ("snapshot_id" in resAddTrack) {
+          alertToast("Successfully created playlist", "success");
+        }
       }
-    }else{
-			console.log("pilih track")
-		}
+    } else {
+      alertToast("No track selected", "error");
+    }
   }
 
   return (
@@ -59,9 +90,26 @@ function CreatePlaylist() {
           value={playlistDesc}
           onChange={(e) => setPlaylistDesc(e.target.value)}
         />
-        <Button mt={4} colorScheme="green" type="submit" onClick={handleSubmit}>
-          Create
-        </Button>
+        {playlistName === "" || playlistDesc === "" ? (
+          <Button
+            mt={4}
+            colorScheme="green"
+            type="submit"
+            onClick={handleSubmit}
+            disabled
+          >
+            Create
+          </Button>
+        ) : (
+          <Button
+            mt={4}
+            colorScheme="green"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Create
+          </Button>
+        )}
       </FormControl>
     </Container>
   );
