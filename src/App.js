@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
 import {useSelector} from 'react-redux'
+import React from 'react'
 
 function App() {
 	const token= useSelector(state => state.token.value)

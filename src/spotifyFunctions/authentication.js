@@ -8,6 +8,6 @@ export function Authentication() {
 				&client_id=${CLIENT_ID}
 				&scope=${SCOPE}
 				&redirect_uri=${window.location.origin}`,
-    	"_self"
+    "_self"
   );
 }
