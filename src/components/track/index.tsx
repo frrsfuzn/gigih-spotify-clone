@@ -5,13 +5,21 @@ import {
   Button,
   IconButton,
   HStack,
-  Spacer,
   Text,
 	useMediaQuery
 } from "@chakra-ui/react";
 import { FaPlayCircle, FaStopCircle } from "react-icons/fa";
 import React from "react";
 import {FaCheck, FaTimes} from 'react-icons/fa'
+
+interface ITrack {
+	track: SpotifyApi.TrackObjectFull;
+	isSelected: boolean;
+	addToSelectedTracks: (uri:string) => void;
+	removeFromSelectedTracks: (uri:string) => void;
+	startPreview: (src: string) => void;
+	stopPreview: () => void;
+}
 
 function Track({
   track,
@@ -20,8 +28,9 @@ function Track({
   addToSelectedTracks,
   startPreview,
   stopPreview,
-}) {
+}: ITrack) {
 	const [isBiggerThan950] = useMediaQuery("(min-width: 950px)")
+	const buttonIcon = isBiggerThan950 ? null : isSelected ? <FaTimes/> : <FaCheck/>
   const artists = track?.artists.map((artist) => artist.name).join(", ");
   let buttonTitle = "Select";
   if (isSelected) {
@@ -61,13 +70,15 @@ function Track({
       <Text>{artists}</Text>
       <HStack>
         <IconButton
+					aria-label="StopPreview"
           icon={<FaStopCircle />}
-          isRound="true"
+          isRound={true}
           onClick={stopPreview}
         />
         <IconButton
+					aria-label="StartPreview"
           icon={<FaPlayCircle />}
-          isRound="true"
+          isRound={true}
           onClick={() => startPreview(track?.preview_url)}
         />
       </HStack>
@@ -75,7 +86,7 @@ function Track({
         onClick={handleClick}
         colorScheme={isSelected ? "red" : "green"}
         gridArea="1/3/span 3/3"
-				leftIcon={isBiggerThan950 ? "" : isSelected ? <FaTimes/> : <FaCheck/>}
+				leftIcon={buttonIcon}
       >
         {isBiggerThan950?  buttonTitle : ""}
       </Button>
