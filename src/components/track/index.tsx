@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import {
   Grid,
   Heading,
@@ -73,12 +74,14 @@ function Track({
 					aria-label="StopPreview"
           icon={<FaStopCircle />}
           isRound={true}
+					colorScheme="red"
           onClick={stopPreview}
         />
         <IconButton
 					aria-label="StartPreview"
           icon={<FaPlayCircle />}
           isRound={true}
+					colorScheme="teal"
           onClick={() => startPreview(track?.preview_url)}
         />
       </HStack>
