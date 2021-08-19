@@ -6,7 +6,7 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
-import AppBar from "./../components/appBar";
+import AppBar from "../components/appBar";
 import SearchTrack from "../components/searchTrack";
 import CreatePlaylist from "../components/createPlaylist";
 import SearchResult from "../components/searchResult";
