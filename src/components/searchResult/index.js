@@ -11,6 +11,7 @@ import React from "react";
 import Track from "../track";
 import { useSelector, useDispatch } from "react-redux";
 import { storeSelected } from "../../features/tracks/trackSlice";
+import {startPreview, stopPreview} from '../../spotifyFunctions'
 
 function SearchResult() {
   const tracks = useSelector((state) => state.track.searchTracks);
@@ -35,8 +36,10 @@ function SearchResult() {
           key={track.id}
           track={track}
           isSelected={selectedTracks.includes(track.uri)}
-					addToSelectedTracks={addToSelectedTracks}
-					removeFromSelectedTracks={removeFromSelectedTracks}
+          addToSelectedTracks={addToSelectedTracks}
+          removeFromSelectedTracks={removeFromSelectedTracks}
+					startPreview={startPreview}
+					stopPreview={stopPreview}
         />
       ))}
     </Container>
