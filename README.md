@@ -29,6 +29,12 @@ your preferred browser.
 localhost:3000
 ```
 
+## Try live version
+- Open following link address in your browser
+```sh
+https://gigih-spotify-clone.vercel.app/
+```
+
 ## Requirement check
 |Requirement|Check|Location|
 |-----------|-----|-----------|
