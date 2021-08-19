@@ -22,6 +22,7 @@ function Login() {
 		const token = getTokenFromHash(hash)
 		async function fetchData(){
 			const userProfile = await fetchUserProfile(token)
+			console.log(userProfile)
 			dispatch(storeUser(userProfile))
 		}
 		if(token){

@@ -31,7 +31,7 @@ function Dashboard() {
           <GridItem gridArea="createPlaylist">
             <CreatePlaylist />
           </GridItem>
-          <GridItem girdArea="searchTrack">
+          <GridItem gridArea="searchTrack">
             <SearchTrack />
           </GridItem>
           <GridItem gridArea="searchResult">
