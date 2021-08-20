@@ -2,7 +2,7 @@
 > This is a Final Project of Fontend Engineer Generation Gigih
 
 ## Problems
-- Based on my understanding, there's no major problems in this project and all requirements are fullfilled
+- Focus problems of this app is how to make a playlist in Spotify using Spotify API
 ## Features
 - User profile picture at top right corner
 - User profile name beside profile picture
@@ -27,6 +27,12 @@ your preferred browser.
 
 ```sh
 localhost:3000
+```
+
+## How to test
+- Within project directory, enter this following command in terminal
+```sh
+yarn test
 ```
 
 ## Try live version
