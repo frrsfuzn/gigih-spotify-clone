@@ -50,4 +50,4 @@ https://gigih-spotify-clone.vercel.app/
 |Typescript|✔| most files are typescript|
 |Redux|✔|src/features/|
 |Test element in document|✔|track.test.js|
-|Test useing MSW & user Event|✔|SearchTrack.test.js|
+|Test using MSW & user Event|✔|SearchTrack.test.js|
