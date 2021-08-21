@@ -47,7 +47,7 @@ https://gigih-spotify-clone.vercel.app/
 |Hooks|✔|createPlaylist, searchTrack|
 |Flex|✔|appBar, searchTrack|
 |Grid|✔|track, dashboard, login|
-|Typescript|✔|all files are typescript|
+|Typescript|✔| most files are typescript|
 |Redux|✔|src/features/|
 |Test element in document|✔|track.test.js|
 |Test useing MSW & user Event|✔|SearchTrack.test.js|
