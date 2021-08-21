@@ -11,7 +11,7 @@
 - Dark mode toggle
 - Login with spotify account
 - Search song
-- Able to create playlist
+- Create playlist
 
 ## How to Run
 - Rename file .env and to .env.local
@@ -47,7 +47,7 @@ https://gigih-spotify-clone.vercel.app/
 |Hooks|✔|createPlaylist, searchTrack|
 |Flex|✔|appBar, searchTrack|
 |Grid|✔|track, dashboard, login|
-|Typescript|✔|track|
+|Typescript|✔|all files are typescript|
 |Redux|✔|src/features/|
 |Test element in document|✔|track.test.js|
 |Test useing MSW & user Event|✔|SearchTrack.test.js|

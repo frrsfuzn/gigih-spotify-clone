@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 const SPOTIFY_API = "https://api.spotify.com";
-export async function fetchUserProfile(token) {
+
+
+export async function fetchUserProfile(token:string) {
   const userProfile = await fetch(`${SPOTIFY_API}/v1/me`, {
     method: "GET",
     headers: {
@@ -7,12 +10,12 @@ export async function fetchUserProfile(token) {
     },
   });
 
-  const userProfileJson = await userProfile.json();
+  const userProfileJson: SpotifyApi.UserProfileResponse = await userProfile.json();
 
   return userProfileJson;
 }
 
-export async function searchTrack(trackName, token) {
+export async function searchTrack(trackName:string, token: string) {
   const tracks = await fetch(
     `${SPOTIFY_API}/v1/search?q=${trackName}&type=track`,
     {
@@ -27,10 +30,10 @@ export async function searchTrack(trackName, token) {
 }
 
 export async function createPlaylist(
-  playlistName,
-  playlistDesc,
-  userProfileId,
-  token
+  playlistName:string,
+  playlistDesc:string,
+  userProfileId:string,
+  token:string
 ) {
   const response = await fetch(
     `${SPOTIFY_API}/v1/users/${userProfileId}/playlists`,
@@ -52,7 +55,7 @@ export async function createPlaylist(
   return responseJson;
 }
 
-export async function addTracksToPlaylist(idPlaylist, tracks, token) {
+export async function addTracksToPlaylist(idPlaylist:string, tracks: string[], token: string) {
   const response = await fetch(
     `${SPOTIFY_API}/v1/playlists/${idPlaylist}/tracks?uris=${tracks.join(",")}`,
     {

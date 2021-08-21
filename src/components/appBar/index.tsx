@@ -9,10 +9,10 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useAppSelector } from '../../app/hooks'
 
-function AppBar() {
-  const userProfile = useSelector((state) => state.user.value);
+function AppBar():JSX.Element {
+  const userProfile = useAppSelector((state) => state.user.value);
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
@@ -40,9 +40,10 @@ function AppBar() {
       )}
       <Avatar ml={4} src={userProfile?.images?.[0].url} />
       <IconButton
+				aria-label="ModeToggle"
         ml={8}
         icon={isDark ? <FaSun /> : <FaMoon />}
-        isRound="true"
+        isRound={true}
         size="lg"
         onClick={toggleColorMode}
       />

@@ -11,7 +11,7 @@ import SearchTrack from "../components/searchTrack";
 import CreatePlaylist from "../components/createPlaylist";
 import SearchResult from "../components/searchResult";
 
-function Dashboard() {
+function Dashboard(): JSX.Element {
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
   return (

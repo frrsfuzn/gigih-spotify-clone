@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 const SPOTIFY_URL = "https://accounts.spotify.com";
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const SCOPE = "playlist-modify-private";

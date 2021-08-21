@@ -5,22 +5,22 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import Track from "../track";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { storeSelected } from "../../features/tracks/trackSlice";
 import {startPreview, stopPreview} from '../../spotifyFunctions'
 
-function SearchResult() {
+function SearchResult(): JSX.Element {
 	const {colorMode} = useColorMode()
 	const isDark = colorMode === 'dark'
-  const tracks = useSelector((state) => state.track.searchTracks);
-  const selectedTracks = useSelector((state) => state.track.selectedTracks);
-  const dispatch = useDispatch();
+  const tracks = useAppSelector((state) => state.track.searchTracks);
+  const selectedTracks = useAppSelector((state) => state.track.selectedTracks);
+  const dispatch = useAppDispatch();
 
-  function addToSelectedTracks(uri) {
+  function addToSelectedTracks(uri: string) {
     dispatch(storeSelected([...selectedTracks, uri]));
   }
 
-  function removeFromSelectedTracks(uri) {
+  function removeFromSelectedTracks(uri: string) {
     dispatch(storeSelected(selectedTracks.filter((item) => item !== uri)));
   }
 
@@ -29,7 +29,7 @@ function SearchResult() {
       <Heading textAlign="center" size="md" mb={4}>
         Search Result
       </Heading>
-      {tracks.map((track) => (
+      {tracks.map((track: SpotifyApi.TrackObjectFull) => (
         <Track
           key={track.id}
           track={track}

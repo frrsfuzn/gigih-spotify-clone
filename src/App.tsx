@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
-import {useSelector} from 'react-redux'
+import { useAppSelector } from "./app/hooks";
 import React from 'react'
 
-function App() {
-	const token= useSelector(state => state.token.value)
+function App(): JSX.Element {
+	const token= useAppSelector(state => state.token.value)
   return (
 		<Router>
 			<Switch>

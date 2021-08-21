@@ -1,6 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const initialState = {
+interface ITokenState {
+	value: string
+}
+
+const initialState: ITokenState = {
 	value: ""
 }
 
@@ -8,7 +12,7 @@ export const tokenSlice = createSlice({
 	name: 'token',
 	initialState,
 	reducers: {
-		storeToken: (state, action) => {
+		storeToken: (state, action: PayloadAction<string>) => {
 			state.value = action.payload
 		}
 	}

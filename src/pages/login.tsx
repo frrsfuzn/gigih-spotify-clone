@@ -9,13 +9,13 @@ import {
   Container,
 } from "@chakra-ui/react";
 import {Authentication, getTokenFromHash, fetchUserProfile} from '../spotifyFunctions'
-import { useDispatch,  } from "react-redux";
+import { useAppDispatch } from "../app/hooks";
 import { storeToken } from '../features/token/tokenSlice'
 import { storeUser } from '../features/user/userSlice'
 
-function Login() {
+function Login(): JSX.Element {
 
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 
 	useEffect(() => {
 		const hash = window.location.hash

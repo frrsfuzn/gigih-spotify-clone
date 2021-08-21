@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  ColorModeScript,
+  DeepPartial,
+  extendTheme,
+  ThemeConfig,
+} from "@chakra-ui/react";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 
-const config = {
+const config: DeepPartial<ThemeConfig> = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };

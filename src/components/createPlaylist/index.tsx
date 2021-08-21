@@ -10,20 +10,20 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
 import { createPlaylist, addTracksToPlaylist } from "../../spotifyFunctions";
 
-function CreatePlaylist() {
+function CreatePlaylist(): JSX.Element {
   const toast = useToast();
   const [playlistName, setPlaylistName] = useState("");
   const [playlistDesc, setPlaylistDesc] = useState("");
-  const selectedTracks = useSelector((state) => state.track.selectedTracks);
-  const userProfileId = useSelector((state) => state.user.value.id);
-  const token = useSelector((state) => state.token.value);
+  const selectedTracks = useAppSelector((state) => state.track.selectedTracks);
+  const userProfile = useAppSelector((state) => state.user.value);
+  const token = useAppSelector((state) => state.token.value);
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
-  function alertToast(title, status) {
+  function alertToast(title: string, status: "info" | "warning" | "success" | "error" | undefined) {
     toast({
       title: title,
       status: status,
@@ -51,7 +51,7 @@ function CreatePlaylist() {
         const resPlaylist = await createPlaylist(
           playlistName,
           playlistDesc,
-          userProfileId,
+          userProfile?.id,
           token
         );
         const resAddTrack = await addTracksToPlaylist(
