@@ -14,8 +14,8 @@
 - Create playlist
 
 ## How to Run
-- Rename file .env and to .env.local
-- Open file .env.local and change client-id with your spotify client id
+- Rename file .env to .env.local
+- Open file .env.local and change `yourSpotifyClientId` with your spotify client id
 - Then do the following commands
 ```sh
 cd gigih-spotify-clone
